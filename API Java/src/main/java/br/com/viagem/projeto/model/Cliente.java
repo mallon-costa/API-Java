@@ -1,0 +1,93 @@
+package br.com.viagem.projeto.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "usuario")
+public class Cliente {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Integer id;
+	
+	@Column(name = "nome_completo", length = 200, nullable = true)
+	private String nome_completo;
+	
+	@Column(name = "email", length = 50, nullable = true)
+	private String email;
+	
+	@Column(name = "senha", length = 15, nullable = true)
+	private String senha;
+	
+	@Column(name = "telefone", length = 15, nullable = true)
+	private String telefone;
+	
+	@Column(name = "cpf", length = 15, nullable = true)
+	private String cpf;
+	
+	@Column(name = "idade")
+	private Integer idade;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNome_completo() {
+		return nome_completo;
+	}
+
+	public void setNome_completo(String nome_completo) {
+		this.nome_completo = nome_completo;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public Integer getIdade() {
+		return idade;
+	}
+
+	public void setIdade(Integer idade) {
+		this.idade = idade;
+	}
+	
+}

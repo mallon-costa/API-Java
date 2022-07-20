@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="./scriptPagamento.js" defer></script>
+  <link rel="stylesheet" href="css/stylePagamento.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <div class="container content">
+      <img src="img/logo2.png" alt="logo" />
+      <p>
+        Reservations: 061/505-775 <br />
+        Info: 032/123-456
+      </p>
+      <p>
+        Reservas: alaim@unifesspa.com.br <br />
+        Info: palladium@gmail.com
+      </p>
+    </div>
+  </header>
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="index.html">Hospedagens</a></li>
+        <li><a href="#">Voos</a></li>
+        <li><a href="index.html#staff">Equipe</a></li>
+        <!--<li><a href="#pricing">Pricing</a></li>-->
+        <li><a href="index.html#gallery">Galeria</a></li>
+        <li><a href="index.html#contact">Contato </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="box2">
+    <h2>Pagamento</h2>
+    <form action="">
+      <input type="text" class="numeroCartao" name="numeroCartao" placeholder="Número do Cartão">
+      <input type="text" class="codSeguranca" name="codSeguranca" placeholder="Código de segurança (CVV)">
+      <input type="number" class="quantParcelas" name="quantParcelas" placeholder="Quantidade de Parcelas">
+
+      <br /><span id="precoTotal"></span>
+      <button id="botaoProsseguir">Prosseguir</button>
+    </form>
+  </div>
+
+  <main class="showcase">
+    <!--<video width="100%" autoplay muted loop>
+        <source src="img/video.mp4" type="video/mp4" />
+      
+      </video>
+      -->
+    <img src="img/cidade.jpg" class="cidade" />
+
+
+    <script type="text/javascript">
+      function abrir() {
+        var main = document.getElementById("corpo");
+        var iten = document.querySelector("#receita1");
+
+        const button = document.querySelector(".button")
+
+        //var teste = document.querySelector("#botao")
+        //console.log(teste);
+
+        //var iten = teste;
+        //console.log(iten);
+
+        /*
+        if (iten) {
+  
+          iten.onclick = function () {
+            var el = document.getElementById(this.id.substr(7, 7));
+            console.log(el);
+            if (el.style.display == "block")
+              el.style.display = "none";
+            else
+              el.style.display = "block";
+          }
+        }
+        */
+
+        button.addEventListener("click", function () {
+          event.preventDefault();
+          var el = document.getElementById(this.id.substr(7, 7));
+          console.log(el);
+          console.log(this.id);
+          if (el.style.display == "block")
+            el.style.display = "none";
+          else
+            el.style.display = "block";
+        });
+        /*
+        if (iten) {
+          for (var i = 0; i < iten.length; i++) {
+            iten[i].onclick = function () {
+              var el = document.getElementById(this.id.substr(7, 7));
+              if (el.style.display == "block")
+                el.style.display = "none";
+              else
+                el.style.display = "block";
+            }
+          }
+        }*/
+
+      }
+      window.onload = abrir;
+    </script>
+
+    <div id="central">
+      <!-- Botao -->
+      <!--<input type="button" value="Abrir / fechar" id="receita2">-->
+      <!-- conteudo escondido -->
+      <div id="1" class="escondida">
+        <!-- Aqui fica o seu form -->
+
+        <!-- INICIO DO FORMULÁRIO -->
+
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Selecionar multiplos itens no elemento select</title>
+        </head>
+
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <table>
+          <tr>
+            <td class="prvi">Ofertas</td>
+            <td class="prvi">VIP</td>
+            <td class="prvi">Vantagens</td>
+            <td class="prvi">Quartos</td>
+          </tr>
+
+          <tr>
+            <td>Pacote Padrão</td>
+            <td>Plano privado</td>
+            <td>Piscina</td>
+            <td>Laptop</td>
+          </tr>
+
+          <tr>
+            <td>Pacote de luxo</td>
+            <td>Cabana na floresta</td>
+            <td>Boate</td>
+            <td>TV a satélite</td>
+          </tr>
+
+          <tr>
+            <td>Pacote Premium</td>
+            <td>Casino</td>
+            <td>Tour pela cidade</td>
+            <td>Wi-fi grátis</td>
+          </tr>
+
+          <tr>
+            <td>Presidente</td>
+            <td>Lounge Exclusivo</td>
+            <td>Open bar</td>
+            <td>Ar condicionado</td>
+          </tr>
+        </table>
+      </div>
+    </footer>
+</body>
+
+</html>

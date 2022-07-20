@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="./script.js" defer></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <div class="container content">
+      <img src="img/logo2.png" alt="logo" />
+      <p>
+        Reservations: 061/505-775 <br />
+        Info: 032/123-456
+      </p>
+      <p>
+        Reservas: alaim@unifesspa.com.br <br />
+        Info: palladium@gmail.com
+      </p>
+    </div>
+  </header>
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="#welcome">Hospedagens</a></li>
+        <li><a href="voos.html">Voos</a></li>
+        <li><a href="#staff">Equipe</a></li>
+        <!--<li><a href="#pricing">Pricing</a></li>-->
+        <li><a href="#gallery">Galeria</a></li>
+        <li><a href="#contact">Contato </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="showcase">
+    <video width="100%" autoplay muted loop>
+      <source src="img/video.mp4" type="video/mp4" />
+    </video>
+
+    <form method="post">
+      <div class="forma" id="corpo">
+        Check in date: <br />
+        <input type="date" name="date" id="dateIni" />
+        Check out date: <br />
+        <input type="date" name="date" id="dateFim" />
+        <input type="button" class="button" id="receita1" value="Verificar Disponiblidade!" />
+      </div>
+    </form>
+  </main>
+
+  <style type="text/css">
+    .escondida {
+      display: none;
+    }
+  </style>
+
+  <script type="text/javascript">
+    function abrir() {
+      var main = document.getElementById("corpo");
+      var iten = document.querySelector("#receita1");
+
+      const button = document.querySelector(".button")
+
+      //var teste = document.querySelector("#botao")
+      //console.log(teste);
+
+      //var iten = teste;
+      //console.log(iten);
+
+      /*
+      if (iten) {
+
+        iten.onclick = function () {
+          var el = document.getElementById(this.id.substr(7, 7));
+          console.log(el);
+          if (el.style.display == "block")
+            el.style.display = "none";
+          else
+            el.style.display = "block";
+        }
+      }
+      */
+
+      button.addEventListener("click", function () {
+        event.preventDefault();
+        var el = document.getElementById(this.id.substr(7, 7));
+        console.log(el);
+        console.log(this.id);
+        if (el.style.display == "block")
+          el.style.display = "none";
+        else
+          el.style.display = "block";
+      });
+      /*
+      if (iten) {
+        for (var i = 0; i < iten.length; i++) {
+          iten[i].onclick = function () {
+            var el = document.getElementById(this.id.substr(7, 7));
+            if (el.style.display == "block")
+              el.style.display = "none";
+            else
+              el.style.display = "block";
+          }
+        }
+      }*/
+
+    }
+    window.onload = abrir;
+  </script>
+
+  <div id="central">
+    <!-- Botao -->
+    <!--<input type="button" value="Abrir / fechar" id="receita2">-->
+    <!-- conteudo escondido -->
+    <div id="1" class="escondida">
+      <!-- Aqui fica o seu form -->
+
+      <!-- INICIO DO FORMULÁRIO -->
+
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Selecionar multiplos itens no elemento select</title>
+      </head>
+
+      <body>
+        <label for="ddlCores">Selecione sua Hospedagem:</label><br>
+        <select id="ddlCores" multiple="multiple" size="10" style="width:600px">
+
+
+
+        </select> <br>
+        <div class="box2">
+          <h2>Seus Dados</h2>
+          <form action="">
+            <input type="text" class="nome" name="nome" placeholder="Nome">
+            <input type="text" class="email" name="email" placeholder="Email">
+            <input type="text" class="cpf" name="cpf" placeholder="CPF">
+            <input type="text" class="tel" name="tel" placeholder="Telefone">
+            <input type="number" class="idade" name="idade" placeholder="Idade">
+            <br>
+            <input type="number" class="quantPessoas" name="quantPessoas" placeholder="Quantidade de Pessoas">
+            <input type="number" class="numQuartos" name="numQuartos" placeholder="Nº de Quartos">
+            <div class="modoPagamento">
+              <p>
+                Cartão de Débito: <input type="radio" name="citizenship" checked="yes" /><br />
+                Cartão de Crédito: <input type="radio" name="citizenship" /><br />
+                Boleto: <input type="radio" name="citizenship" />
+              </p>
+            </div>
+            <div class="tipodeViagem">
+      
+            </div>
+            <button id="botaoProsseguir">Prosseguir</button>
+          </form>
+        </div>
+        <input type="button" id="btnExibir" value="Exibir itens selecionados" />
+        <h2 id="resultado"></h2>
+        <script>
+          let itensSelecionados
+          var valTotal;
+          document.getElementById("botaoProsseguir").onclick = function () {
+            let ddl = document.getElementById('ddlCores');
+            itensSelecionados = Array.from(ddl.options)
+              .filter(option => option.selected)
+              .map(option => option.value);
+            //document.getElementById("resultado").innerHTML = "Você selecionou: " + itensSelecionados;
+
+            var valor2 = itensSelecionados[0].split(" ");
+            var valorTot = valor2.pop();
+            valTotal = parseFloat(valorTot);
+            console.log(valTotal);
+            const soma = somaTotal();
+
+            
+            var r = confirm("Valor Total da Compra: " + soma+"\nClique OK para continuar");
+            if (r == true) {
+              window.location.href = "pagamento.html";
+            }
+            document.getElementById("demo").innerHTML = x;
+
+          };
+
+
+          const qPessoas = document.querySelector('[name="quantPessoas"]');
+
+          function somaTotal() {
+            let valor = valTotal * qPessoas.valueAsNumber;
+
+            const nQuartos = document.querySelector('[name="numQuartos"]');
+            valor = valor * nQuartos.value;
+            console.log(valor);
+            return valor;
+    
+          };
+        </script>
+      </body>
+    </div>
+  </div>
+  <main class="prelude" id="Bem-vindo">
+    <H1>Bem-vindo</H1>
+  </main>
+  <main class="glavniMain ">
+    <img src="img/slika1.jpg" class="Slika1" />
+    <div class="text1">
+      <h1>Quartos incríveis</h1>
+      <p>
+        Para todos os tipos de viagem, encontre ofertas únicas para aproveitar o seu tempo de descanso.
+      </p>
+    </div>
+
+    <img src="img/aviaodecolando.jpg" class="Slika2" />
+    <div class="text2">
+      <h1>A maior</h1>
+      <p>
+        A maior Companhia aérea do país e a número 1 em pontualidade, conforto, atendimento
+        e número de passageiros transportados no Brasil. Tudo isso graças à dedicação do nosso
+        time de colaboradores, que trabalha para que possamos oferecer sempre a melhor experiência e
+        cumprir o nosso Propósito de Ser a Primeira para Todos.
+      </p>
+    </div>
+
+    <img src="img/slika3.jpg" class="Slika3" />
+    <div class="text3">
+      <h1>Vista Magnífica</h1>
+      <p>
+        Com uma ampla gama de serviços para famílias, casais e grupos, além de serviços
+        especialmente pensados ​​para eventos, reuniões de negócios, viagens de incentivo
+        e casamentos. Os resorts - todos localizados à beira-mar - oferecem instalações
+        luxuosas para adultos e crianças, com atendimento personalizado garantido. Há uma
+        variedade de opções gastronômicas, uma infinidade de opções de passeios de um dia
+        e áreas de recreação para os mais pequenos... essa enorme variedade de opções está
+        disponível em nosso pacote Infinite Indulgence com tudo incluído. E com nosso serviço
+        premium para famílias, em uma excelente localização dentro do resort - todos os
+        membros da família podem desfrutar de toques de luxo e serviços VIP,
+        para que ninguém perca sua estadia.
+      </p>
+    </div>
+  </main>
+
+  <main class="prelude" id="gallery">
+    <H1>Galeria</H1>
+  </main>
+
+  <main class="Gallery">
+    <img src="img/Gallery/1.jpg" class="Pic1" />
+    <img src="img/Gallery/2.jpg" class="Pic1" />
+    <img src="img/Gallery/3.jpg" class="Pic1" />
+    <img src="img/Gallery/4.jpg" class="Pic1" />
+    <img src="img/Gallery/5.jpg" class="Pic1" />
+    <img src="img/Gallery/6.jpg" class="Pic1" />
+    <img src="img/Gallery/7.jpg" class="Pic1" />
+    <img src="img/Gallery/8.jpg" class="Pic1" />
+    <img src="img/Gallery/9.jpg" class="Pic1" />
+    <img src="img/Gallery/10.jpg" class="Pic1" />
+    <img src="img/Gallery/11.jpg" class="Pic1" />
+    <img src="img/Gallery/12.jpg" class="Pic1" />
+  </main>
+  <!--
+    <main class="prelude"  id="pricing">
+      <H1>Pricing</H1>
+    </main>
+    <main class="Pricing">
+      <div class="columns">
+        <ul class="price">
+          <li class="header">Standard</li>
+          <li class="grey">$300/ Night</li>
+          <li>Casino</li>
+          <li>Exclusive Lounge</li>
+          <li>Private Concerts</li>
+          <li>Special Kichen</li>
+          <li class="grey"><a href="#" class="button">Reserve</a></li>
+        </ul>
+      </div>
+    
+      <div class="columns">
+        <ul class="price">
+          <li class="header">Deluxe</li>
+          <li class="grey">$500-$700 / Night</li>
+          <li>City Tour</li>
+          <li>Night Club</li>
+          <li>Pool</li>
+          <li>Butler</li>
+          <li class="grey"><a href="#" class="button">Reserve</a></li>
+        </ul>
+      </div>
+
+      <div class="columns">
+        <ul class="price">
+          <li class="header">Premium</li>
+          <li class="grey">$900 / Night</li>
+          <li>Cabin In The Woods</li>
+          <li>Private Plane</li>
+          <li>Mountain Trip</li>
+          <li>Private Beach</li>
+          <li class="grey"><a href="#" class="button">Reserve</a></li>
+        </ul>
+      </div>
+    </main>
+  -->
+  <main class="prelude" id="staff">
+    <H1>Nossa equipe</H1>
+  </main>
+
+  <main class="cards">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="img/Cards/alaim_img.jpg" alt="Avatar" />
+        </div>
+        <div class="flip-card-back">
+          <h1>Alaim de Jesus</h1>
+          <p>Analista de Sistema - CTIC</p>
+          <p>O Melhor!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="img/Cards/henrique_img.jpg" alt="Avatar" />
+        </div>
+        <div class="flip-card-back">
+          <h1>Henrique Viana</h1>
+          <p>Suporte - CTIC</p>
+          <p>O Maior!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="img/Cards/malon_img.png" alt="Avatar" />
+        </div>
+        <div class="flip-card-back">
+          <h1>Manoel Malon</h1>
+          <p>Estudante</p>
+          <p>O Pior!</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <main class="prelude" id="contact">
+    <H1>Entre em contato conosco</H1>
+  </main>
+
+  <main class="AboutUs">
+    <div class="wrapper">
+      <div class="contact-form">
+        <div class="input-fields">
+          <input type="text" class="input" placeholder="Nome" />
+          <input type="text" class="input" placeholder="Endereço de email" />
+          <input type="text" class="input" placeholder="Fone" />
+          <input type="text" class="input" placeholder="Assunto" />
+        </div>
+        <div class="msg">
+          <textarea placeholder="Messagem"></textarea>
+          <div class="btn">Enviar</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <table>
+        <tr>
+          <td class="prvi">Ofertas</td>
+          <td class="prvi">VIP</td>
+          <td class="prvi">Vantagens</td>
+          <td class="prvi">Quartos</td>
+        </tr>
+
+        <tr>
+          <td>Pacote Padrão</td>
+          <td>Plano privado</td>
+          <td>Piscina</td>
+          <td>Laptop</td>
+        </tr>
+
+        <tr>
+          <td>Pacote de luxo</td>
+          <td>Cabana na floresta</td>
+          <td>Boate</td>
+          <td>TV a satélite</td>
+        </tr>
+
+        <tr>
+          <td>Pacote Premium</td>
+          <td>Casino</td>
+          <td>Tour pela cidade</td>
+          <td>Wi-fi grátis</td>
+        </tr>
+
+        <tr>
+          <td>Presidente</td>
+          <td>Lounge Exclusivo</td>
+          <td>Open bar</td>
+          <td>Ar condicionado</td>
+        </tr>
+      </table>
+    </div>
+  </footer>
+</body>
+
+</html>

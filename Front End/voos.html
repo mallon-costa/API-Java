@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="./scriptVoo.js" defer></script>
+  <link rel="stylesheet" href="css/styleVoo.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <div class="container content">
+      <img src="img/logo2.png" alt="logo" />
+      <p>
+        Reservations: 061/505-775 <br />
+        Info: 032/123-456
+      </p>
+      <p>
+        Reservas: alaim@unifesspa.com.br <br />
+        Info: palladium@gmail.com
+      </p>
+    </div>
+  </header>
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="index.html">Hospedagens</a></li>
+        <li><a href="#">Voos</a></li>
+        <li><a href="index.html#staff">Equipe</a></li>
+        <!--<li><a href="#pricing">Pricing</a></li>-->
+        <li><a href="index.html#gallery">Galeria</a></li>
+        <li><a href="index.html#contact">Contato </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="showcase">
+    <!--<video width="100%" autoplay muted loop>
+        <source src="img/video.mp4" type="video/mp4" />
+      
+      </video>
+      -->
+    <img src="img/cidade.jpg" class="cidade" />
+
+    <form method="post">
+      <div class="forma">
+        Check in date: <br />
+        <input type="date" name="date" class="dataIn" id="dateIni" />
+        Check out date: <br />
+        <input type="date" name="date" class="dataFim" id="dateFim" />
+        <input type="button" class="button" id="receita1" value="Verificar Disponiblidade!" />
+      </div>
+    </form>
+  </main>
+
+
+  <style type="text/css">
+    .escondida {
+      display: none;
+    }
+  </style>
+
+  <script type="text/javascript">
+    function abrir() {
+      var main = document.getElementById("corpo");
+      var iten = document.querySelector("#receita1");
+
+      const button = document.querySelector(".button")
+
+      //var teste = document.querySelector("#botao")
+      //console.log(teste);
+
+      //var iten = teste;
+      //console.log(iten);
+
+      /*
+      if (iten) {
+
+        iten.onclick = function () {
+          var el = document.getElementById(this.id.substr(7, 7));
+          console.log(el);
+          if (el.style.display == "block")
+            el.style.display = "none";
+          else
+            el.style.display = "block";
+        }
+      }
+      */
+
+      button.addEventListener("click", function () {
+        event.preventDefault();
+        var el = document.getElementById(this.id.substr(7, 7));
+        console.log(el);
+        console.log(this.id);
+        if (el.style.display == "block")
+          el.style.display = "none";
+        else
+          el.style.display = "block";
+      });
+      /*
+      if (iten) {
+        for (var i = 0; i < iten.length; i++) {
+          iten[i].onclick = function () {
+            var el = document.getElementById(this.id.substr(7, 7));
+            if (el.style.display == "block")
+              el.style.display = "none";
+            else
+              el.style.display = "block";
+          }
+        }
+      }*/
+
+    }
+    window.onload = abrir;
+  </script>
+
+  <div id="central">
+    <!-- Botao -->
+    <!--<input type="button" value="Abrir / fechar" id="receita2">-->
+    <!-- conteudo escondido -->
+    <div id="1" class="escondida">
+      <!-- Aqui fica o seu form -->
+
+      <!-- INICIO DO FORMULÁRIO -->
+
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Selecionar multiplos itens no elemento select</title>
+      </head>
+
+      <body>
+        <label for="ddlCores">Selecione sua Hospedagem:</label><br>
+        <select id="ddlCores" multiple="multiple" size="10" style="width:600px">
+
+        </select> <br>
+        <div class="box2">
+          <h2>Seus Dados</h2>
+          <form action="">
+            <input type="text" class="nome" name="nome" placeholder="Nome">
+            <input type="text" class="email" name="email" placeholder="Email">
+            <input type="text" class="cpf" name="cpf" placeholder="CPF">
+            <input type="text" class="tel" name="tel" placeholder="Telefone">
+            <input type="number" class="idade" name="idade" placeholder="Idade">
+            <br>
+            <input type="number" class="quantPessoas" name="quantPessoas" placeholder="Quantidade de Pessoas">
+            <div class="modoPagamento">
+              <p>
+                Cartão de Débito: <input type="radio" name="citizenship" checked="yes" /><br />
+                Cartão de Crédito: <input type="radio" name="citizenship" /><br />
+                Boleto: <input type="radio" name="citizenship" />
+              </p>
+            </div>
+            <div class="tipodeViagem">
+              <p>
+                Somente ida: <input type="radio" name="tipo" id="somenteIda" checked="yes" /><br />
+                Ida e volta: <input type="radio" name="tipo" id="idaeVolta" /><br />
+              </p>
+            </div>
+            <br /><span id="precoTotal"></span>
+            <button id="botaoProsseguir">Prosseguir</button>
+          </form>
+        </div>
+        <input type="button" id="btnExibir" value="Exibir itens selecionados" />
+        <h2 id="resultado"></h2>
+
+        <p id="demo"></p>
+
+        <script>
+          let itensSelecionados
+          var valTotal;
+          document.getElementById("botaoProsseguir").onclick = function () {
+            let ddl = document.getElementById('ddlCores');
+            itensSelecionados = Array.from(ddl.options)
+              .filter(option => option.selected)
+              .map(option => option.value);
+            //document.getElementById("resultado").innerHTML = "Você selecionou: " + itensSelecionados;
+
+            var valor2 = itensSelecionados[0].split(" ");
+            var valorTot = valor2.pop();
+            valTotal = parseFloat(valorTot);
+            console.log(valTotal);
+            const soma = somaTotal();
+
+            
+            var r = confirm("Valor Total da Compra: " + soma+"\nClique OK para continuar");
+            if (r == true) {
+              window.location.href = "pagamento.html";
+            }
+            document.getElementById("demo").innerHTML = x;
+
+          };
+
+
+          const qPessoas = document.querySelector('[name="quantPessoas"]');
+
+          function somaTotal() {
+            let valor = valTotal * qPessoas.valueAsNumber;
+
+            if (document.getElementById("idaeVolta").checked) {
+              valor = valor * 2;
+            }
+            console.log(valor);
+            return valor;
+          }
+
+        </script>
+      </body>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <table>
+        <tr>
+          <td class="prvi">Ofertas</td>
+          <td class="prvi">VIP</td>
+          <td class="prvi">Vantagens</td>
+          <td class="prvi">Quartos</td>
+        </tr>
+
+        <tr>
+          <td>Pacote Padrão</td>
+          <td>Plano privado</td>
+          <td>Piscina</td>
+          <td>Laptop</td>
+        </tr>
+
+        <tr>
+          <td>Pacote de luxo</td>
+          <td>Cabana na floresta</td>
+          <td>Boate</td>
+          <td>TV a satélite</td>
+        </tr>
+
+        <tr>
+          <td>Pacote Premium</td>
+          <td>Casino</td>
+          <td>Tour pela cidade</td>
+          <td>Wi-fi grátis</td>
+        </tr>
+
+        <tr>
+          <td>Presidente</td>
+          <td>Lounge Exclusivo</td>
+          <td>Open bar</td>
+          <td>Ar condicionado</td>
+        </tr>
+      </table>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,451 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font: 16px/1.5 helvetica;
+}
+
+.container {
+  width: 60%;
+  margin: 0px auto;
+  overflow: hidden;
+}
+
+/* Header */
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header {
+  padding: 15px;
+  background-color: black;
+  color: darkgoldenrod;
+}
+
+header img {
+  height: auto;
+  width: 200px;
+}
+
+/* NAV */
+
+nav {
+  background-color: black;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  font-size: 18px;
+}
+nav ul li a:hover {
+  border-bottom: 5px solid darkgoldenrod;
+  cursor: pointer;
+  transition-duration: 2;
+}
+
+/* SHOWCASE */
+
+.showcase {
+  width: 100%;
+  position: relative;
+  background-color: black;
+}
+.showcase .forma {
+  background-color: white;
+  position: absolute;
+  color: black;
+  height: 150px;
+  left: 20%;
+  right: 20%;
+  bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showcase .forma input {
+  color: black;
+  padding: 0px 15px;
+  margin: 0px 20px;
+  height: 35px;
+  border: 1px solid black;
+}
+
+.showcase .forma .button {
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  background: black;
+}
+
+.showcase .forma .button:hover {
+  background-color: darkgoldenrod;
+  color: white;
+  cursor: pointer;
+}
+
+/* Prelude */
+
+.prelude {
+  color: darkgoldenrod;
+  text-align: center;
+  font-size: 20px;
+}
+.prelude h1 {
+  border-bottom: darkgoldenrod 3px solid;
+  margin: 50px auto;
+  text-align: center;
+}
+/* GlavniDio */
+
+.glavniMain {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "slika1  text1"
+    "text2  slika2"
+    "slika3  text3";
+  width: 100%;
+}
+
+.glavniMain img {
+  width: 100%;
+  height: 400px;
+}
+
+.glavniMain h1 {
+  color: darkgoldenrod;
+  text-align: center;
+}
+.glavniMain p {
+  width: 70%;
+  margin: 0px auto;
+  text-align: justify;
+}
+.glavniMain .slika1 {
+  grid-area: slika1;
+}
+.glavniMain img:hover {
+  opacity: 0.5;
+  color: grey;
+  transition-duration: 2s ease;
+}
+.glavniMain .text1 {
+  grid-area: text1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.glavniMain .slika2 {
+  grid-area: slika2;
+}
+.glavniMain .text2 {
+  grid-area: text2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Gallery */
+
+.Gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.Gallery img {
+  width: 100%;
+  height: 250px;
+  padding-left: 0;
+}
+.Gallery img:hover {
+  opacity: 0.5;
+  color: grey;
+  transition-duration: 2s ease;
+}
+
+/* PRiCING */
+
+.Pricing {
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+}
+.columns {
+  display: inline-flex;
+  justify-content: space-around;
+  width: 30%;
+}
+
+.price {
+  list-style-type: none;
+  border: 1px solid #eee;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 100%;
+  padding: 0;
+}
+
+.price:hover {
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
+}
+.price .header {
+  background-color: darkgoldenrod;
+  color: white;
+  font-size: 25px;
+}
+
+.price li {
+  border-bottom: 1px solid #eee;
+  padding: 20px;
+  text-align: center;
+}
+
+.price .grey {
+  background-color: #eee;
+  font-size: 20px;
+}
+
+.button {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* CARDS */
+
+.button:hover {
+  background-color: darkgoldenrod;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+}
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  margin: 0 20px;
+
+  border: 1px solid #f1f1f1;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  backface-visibility: hidden;
+}
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+}
+.flip-card-back {
+  background-color: darkgoldenrod;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/*ABOUT US*/
+
+.AboutUs {
+  background-image: url(backgroundCSS.jpg);
+  height: 800px;
+  width: 100%;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  top: 25%;
+  padding: 0 20px;
+}
+
+.contact-form {
+  display: flex;
+  max-width: 550px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  margin-right: 4%;
+}
+
+.input-fields,
+.msg {
+  width: 48%;
+}
+
+.input-fields .input,
+.msg textarea {
+  margin: 10px 0;
+  background: transparent;
+  border: 0px;
+  border-bottom: 2px solid darkgoldenrod;
+  padding: 10px;
+  color: #c5ecfd;
+  width: 100%;
+}
+
+.msg textarea {
+  height: 212px;
+}
+
+.btn {
+  background: darkgoldenrod;
+  text-align: center;
+  padding: 15px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+/* FOOTER */
+
+footer {
+  background-color: black;
+  font-size: 14px;
+  padding: 30px;
+}
+
+footer table {
+  width: 100%;
+}
+footer tr .prvi {
+  color: darkgoldenrod;
+  font-size: 20px;
+  font-weight: 200;
+  text-align: left;
+  padding: 20px;
+}
+footer td {
+  color: gray;
+  width: 100px;
+  padding: 10px;
+  text-align: left;
+  font-size: 12px;
+}
+
+    /* Media Queries */
+
+@media screen and (max-width: 900px) {
+  .glavniMain {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "slika1"
+      "text1"
+      "slika2"
+      "text2"
+      "slika3"
+      "text3";
+  }
+
+  .Gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .Gallery img {
+    width: 60%;
+    height: 250px;
+    margin: 10px auto;
+  }
+
+  .cards {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: 20px;
+  }
+
+  .flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 300px;
+    border: 1px solid #f1f1f1;
+    margin: 10px auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  header p {
+    margin-left: 20px;
+  }
+  .Gallery img {
+    margin: 0px auto;
+  }
+  .content {
+    flex-direction: column;
+  }
+  nav ul li a {
+    font-size: 12px;
+  }
+
+  .showcase .forma {
+    flex-direction: column;
+    padding: 10px;
+  }
+  .showcase .forma input {
+    color: black;
+    padding: 10px 15px;
+    margin: 5px 22px;
+    height: 50px;
+  }
+  .columns {
+    display: block;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+  }
+  .Pricing {
+    flex-direction: column;
+  }
+}
